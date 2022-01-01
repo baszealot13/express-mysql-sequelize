@@ -1,0 +1,6 @@
+PUT http://localhost:4000/api/v1/users/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "user_email": "user3-1@email.com"
+}
