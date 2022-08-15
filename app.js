@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // app.use('/api/v1', apiRoutesV1);
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
     res.send("Hello World!")
 })
 const server = http.createServer(app);
