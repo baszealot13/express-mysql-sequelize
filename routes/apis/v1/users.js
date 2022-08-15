@@ -3,9 +3,10 @@ const router = express.Router();
 const { StatusCodes } = require('http-status-codes');
 const errorHandler = require('http-errors');
 const db = require('../../../models/index');
+const RouterProtection = require('../../../helpers/RouterProtection');
 const { User } = db;
 
-router.get('/', async (req, res, next) => {
+router.get('/', RouterProtection.verify, async (req, res, next) => {
     try {
         const users = await User.findAll();
         const response = users.map(user => {
@@ -19,7 +20,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', RouterProtection.verify, async (req, res, next) => {
     try {
         if (!req.params.id) {
             return next(errorHandler(StatusCodes.BAD_REQUEST, 'Id must be defined'));
@@ -55,7 +56,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', RouterProtection.verify, async (req, res, next) => {
     try {
         if (!req.params.id) {
             return next(errorHandler(StatusCodes.BAD_REQUEST, 'Id must be defined'));
@@ -80,7 +81,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', RouterProtection.verify, async (req, res, next) => {
     try {
         if (!req.params.id) {
             return next(errorHandler(StatusCodes.BAD_REQUEST, 'Id must be defined'));

@@ -21,10 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use('/api/v1', apiRoutesV1);
-app.get("/", (req, res) => {
-    res.send("Hello World!")
-})
+app.use('/api/v1', apiRoutesV1);
+
 const server = http.createServer(app);
 server.listen(process.env.HTTP_PORT || 3000, () => {
 // app.listen(process.env.HTTP_PORT || 3000, () => {
