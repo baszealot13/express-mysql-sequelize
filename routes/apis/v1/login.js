@@ -36,6 +36,7 @@ router.post('/', async (req, res, next) => {
             user: data
         });
     }catch (error) {
+        console.log(error);
         return next(errorHandler(StatusCodes.INTERNAL_SERVER_ERROR, error));
     }
 });

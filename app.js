@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use('/api/v1', apiRoutesV1);
 
 const server = http.createServer(app);
-server.listen(process.env.HTTP_PORT, () => {
+server.listen(process.env.HTTP_PORT || 3000, () => {
     console.log(`Server is running on port ${process.env.HTTP_PORT}`);
 });
 

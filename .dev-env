@@ -1,2 +1,5 @@
 HTTP_PORT=8080
 TOKEN_SECRET=RU26yv1hXK0w56z84yT4GMTQ
+MYSQL_DATABASE=express_mysql_sequelize_development
+MYSQL_USER=dbuser
+MYSQL_PASSWORD=password
