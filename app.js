@@ -14,7 +14,6 @@ if (env === 'development') {
 require('dotenv').config({ path: `./${dotEnv}`});
 
 const apiRoutesV1 = require('./routes/apis/v1');
-
 const app = express();
 
 app.use(logger('dev'));
@@ -38,6 +37,7 @@ server.on('error', (error) => {
         ? 'Pipe ' + port
         : 'Port ' + port;
 
+    console.log('error ', error);
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
