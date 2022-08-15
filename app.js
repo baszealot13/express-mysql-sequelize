@@ -11,7 +11,7 @@ if (env === 'development') {
     dotEnv = '.dev-env';
 }
 
-require('dotenv').config({ path: `./${dotEnv}`});
+require('dotenv').config({ path: `./${dotEnv}` });
 
 const apiRoutesV1 = require('./routes/apis/v1');
 const app = express();
@@ -21,10 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api/v1', apiRoutesV1);
-
-const server = http.createServer(app);
+// app.use('/api/v1', apiRoutesV1);
+app.get("/", function (req, res) {
+    res.send("Hello World!")
+})
+// const server = http.createServer(app);
 server.listen(process.env.HTTP_PORT || 3000, () => {
+// app.listen(process.env.HTTP_PORT || 3000, () => {
     console.log(`Server is running on port ${process.env.HTTP_PORT}`);
 });
 
