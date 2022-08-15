@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.get("/", function (req, res) {
     res.send("Hello World!")
 })
-// const server = http.createServer(app);
+const server = http.createServer(app);
 server.listen(process.env.HTTP_PORT || 3000, () => {
 // app.listen(process.env.HTTP_PORT || 3000, () => {
     console.log(`Server is running on port ${process.env.HTTP_PORT}`);
